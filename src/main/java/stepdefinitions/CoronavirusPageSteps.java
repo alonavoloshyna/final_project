@@ -49,34 +49,57 @@ public class CoronavirusPageSteps {
 //        coronavirusPage.getQuestionFormFragment().clickSubmitButton();
 //    }
 
-    @Then("User checks that error message is displayed when question field is empty")
-    public void userChecksThatErrorMessageIsDisplayedWhenQuestionFieldIsEmpty() {
-        coronavirusPage.waitVisibilityOfElement(coronavirusPage.getErrorMessageForQuestionField());
-        assertTrue(coronavirusPage.isErrorMessageForQuestionFieldDisplayed());
+    @Then("User checks that error message is displayed when {string} field is empty")
+    public void userChecksThatErrorMessageIsDisplayedWhenSomeFieldIsEmpty(final String field) {
+        switch (field) {
+            case "question" -> {
+                coronavirusPage.waitVisibilityOfElement(coronavirusPage.getErrorMessageForQuestionField());
+                assertTrue(coronavirusPage.isErrorMessageForQuestionFieldDisplayed());
+            }
+            case "name" -> {
+                coronavirusPage.waitVisibilityOfElement(coronavirusPage.getErrorMessageForNameField());
+                assertTrue(coronavirusPage.isErrorMessageForNameFieldDisplayed());
+            }
+            case "email" -> {
+                coronavirusPage.waitVisibilityOfElement(coronavirusPage.getErrorMessageForEmailField());
+                assertTrue(coronavirusPage.isErrorMessageForEmailFieldDisplayed());
+            }
+            case "terms of service" -> {
+                coronavirusPage.waitVisibilityOfElement(coronavirusPage.getErrorMessageForCheckbox());
+                assertTrue(coronavirusPage.isErrorMessageForCheckboxDisplayed());
+            }
+            default -> throw new IllegalArgumentException("There is no handler for '" + field + "' field");
+        }
     }
+
+//    @Then("User checks that error message is displayed when question field is empty")
+//    public void userChecksThatErrorMessageIsDisplayedWhenQuestionFieldIsEmpty() {
+//        coronavirusPage.waitVisibilityOfElement(coronavirusPage.getErrorMessageForQuestionField());
+//        assertTrue(coronavirusPage.isErrorMessageForQuestionFieldDisplayed());
+//    }
 
 //    @And("User fills email input field with question text {string}")
 //    public void userFillsEmailInputFieldWithQuestionTextQuestionText(final String question) {
 //        coronavirusPage.getQuestionFormFragment().fillTextareaWithQuestion(question);
 //    }
 
-    @Then("User checks that error message is displayed when email field is empty")
-    public void userChecksThatErrorMessageIsDisplayedWhenEmailFieldIsEmpty() {
-        coronavirusPage.waitVisibilityOfElement(coronavirusPage.getErrorMessageForEmailField());
-        assertTrue(coronavirusPage.isErrorMessageForEmailFieldDisplayed());
-    }
+//    @Then("User checks that error message is displayed when email field is empty")
+//    public void userChecksThatErrorMessageIsDisplayedWhenEmailFieldIsEmpty() {
+//        coronavirusPage.waitVisibilityOfElement(coronavirusPage.getErrorMessageForEmailField());
+//        assertTrue(coronavirusPage.isErrorMessageForEmailFieldDisplayed());
+//    }
 
-    @Then("User checks that error message is displayed when name field is empty")
-    public void userChecksThatErrorMessageIsDisplayedWhenNameFieldIsEmpty() {
-        coronavirusPage.waitVisibilityOfElement(coronavirusPage.getErrorMessageForNameField());
-        assertTrue(coronavirusPage.isErrorMessageForNameFieldDisplayed());
-    }
+//    @Then("User checks that error message is displayed when name field is empty")
+//    public void userChecksThatErrorMessageIsDisplayedWhenNameFieldIsEmpty() {
+//        coronavirusPage.waitVisibilityOfElement(coronavirusPage.getErrorMessageForNameField());
+//        assertTrue(coronavirusPage.isErrorMessageForNameFieldDisplayed());
+//    }
 
-    @Then("User checks that error message is displayed when term of service is not accepted")
-    public void userChecksThatErrorMessageIsDisplayedWhenTermOfServiceIsNotAccepted() {
-        coronavirusPage.waitVisibilityOfElement(coronavirusPage.getErrorMessageForCheckbox());
-        assertTrue(coronavirusPage.isErrorMessageForCheckboxDisplayed());
-    }
+//    @Then("User checks that error message is displayed when term of service is not accepted")
+//    public void userChecksThatErrorMessageIsDisplayedWhenTermOfServiceIsNotAccepted() {
+//        coronavirusPage.waitVisibilityOfElement(coronavirusPage.getErrorMessageForCheckbox());
+//        assertTrue(coronavirusPage.isErrorMessageForCheckboxDisplayed());
+//    }
 
     @And("User clicks on coronavirus stories menu")
     public void userClicksOnCoronavirusStoriesMenu() {

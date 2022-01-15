@@ -42,7 +42,7 @@ Feature: BBC
       | numberOfArticle | expectedValue                    |
       | 0               | Europe: Strangers on My Doorstep |
 
-  Scenario: Check that question form throws out error message when question field is empty
+  Scenario Outline: Check that question form throws out appropriate error messages
     Given User opens home page
     And User clicks on News section
     And User clicks on coronavirus menu
@@ -50,49 +50,70 @@ Feature: BBC
     And User clicks on coronavirus stories menu
     And User clicks on send question menu
     When User fills Question form on Coronavirus page
-      | name           | Alona Voloshyna      |
-      | email          | a.v.testmail@ukr.net |
-      | termsOfService | checked              |
-    Then User checks that error message is displayed when question field is empty
+      | question       | <question>       |
+      | name           | <name>           |
+      | email          | <email>          |
+      | termsOfService | <termsOfService> |
+    Then User checks that error message is displayed when '<whatIsChecked>' field is empty
 
-  Scenario: Check that question form throws out error message when email field is empty
-    Given User opens home page
-    And User clicks on News section
-    And User clicks on coronavirus menu
-    And User closes advertising message on page
-    And User clicks on coronavirus stories menu
-    And User clicks on send question menu
-    When User fills Question form on Coronavirus page
-      | question       | What are the recommendations for someone who has symptoms of COVID-19? |
-      | name           | Alona Voloshyna                                                        |
-      | termsOfService | checked                                                                |
-    Then User checks that error message is displayed when email field is empty
+    Examples:
+      | question                                                               | name            | email                | termsOfService | whatIsChecked    |
+      | What are the recommendations for someone who has symptoms of COVID-19? | Alona Voloshyna | a.v.testmail@ukr.net |                | terms of service |
+      | What are the recommendations for someone who has symptoms of COVID-19? | Alona Voloshyna |                      | checked        | email            |
+      | What are the recommendations for someone who has symptoms of COVID-19? |                 | a.v.testmail@ukr.net | checked        | name             |
+      |                                                                        | Alona Voloshyna | a.v.testmail@ukr.net | checked        | question         |
 
-  Scenario: Check that question form throws out error message when name field is empty
-    Given User opens home page
-    And User clicks on News section
-    And User clicks on coronavirus menu
-    And User closes advertising message on page
-    And User clicks on coronavirus stories menu
-    And User clicks on send question menu
-    When User fills Question form on Coronavirus page
-      | question       | What are the recommendations for someone who has symptoms of COVID-19? |
-      | email          | a.v.testmail@ukr.net                                                   |
-      | termsOfService | checked                                                                |
-    Then User checks that error message is displayed when name field is empty
+#  Scenario: Check that question form throws out error message when question field is empty
+#    Given User opens home page
+#    And User clicks on News section
+#    And User clicks on coronavirus menu
+#    And User closes advertising message on page
+#    And User clicks on coronavirus stories menu
+#    And User clicks on send question menu
+#    When User fills Question form on Coronavirus page
+#      | name           | Alona Voloshyna      |
+#      | email          | a.v.testmail@ukr.net |
+#      | termsOfService | checked              |
+#    Then User checks that error message is displayed when question field is empty
 
-  Scenario: Check that question form throws out error message when term of service is not accepted
-    Given User opens home page
-    And User clicks on News section
-    And User clicks on coronavirus menu
-    And User closes advertising message on page
-    And User clicks on coronavirus stories menu
-    And User clicks on send question menu
-    When User fills Question form on Coronavirus page
-      | question | What are the recommendations for someone who has symptoms of COVID-19? |
-      | name     | Alona Voloshyna                                                        |
-      | email    | a.v.testmail@ukr.net                                                   |
-    Then User checks that error message is displayed when term of service is not accepted
+#  Scenario: Check that question form throws out error message when email field is empty
+#    Given User opens home page
+#    And User clicks on News section
+#    And User clicks on coronavirus menu
+#    And User closes advertising message on page
+#    And User clicks on coronavirus stories menu
+#    And User clicks on send question menu
+#    When User fills Question form on Coronavirus page
+#      | question       | What are the recommendations for someone who has symptoms of COVID-19? |
+#      | name           | Alona Voloshyna                                                        |
+#      | termsOfService | checked                                                                |
+#    Then User checks that error message is displayed when email field is empty
+
+#  Scenario: Check that question form throws out error message when name field is empty
+#    Given User opens home page
+#    And User clicks on News section
+#    And User clicks on coronavirus menu
+#    And User closes advertising message on page
+#    And User clicks on coronavirus stories menu
+#    And User clicks on send question menu
+#    When User fills Question form on Coronavirus page
+#      | question       | What are the recommendations for someone who has symptoms of COVID-19? |
+#      | email          | a.v.testmail@ukr.net                                                   |
+#      | termsOfService | checked                                                                |
+#    Then User checks that error message is displayed when name field is empty
+
+#  Scenario: Check that question form throws out error message when term of service is not accepted
+#    Given User opens home page
+#    And User clicks on News section
+#    And User clicks on coronavirus menu
+#    And User closes advertising message on page
+#    And User clicks on coronavirus stories menu
+#    And User clicks on send question menu
+#    When User fills Question form on Coronavirus page
+#      | question | What are the recommendations for someone who has symptoms of COVID-19? |
+#      | name     | Alona Voloshyna                                                        |
+#      | email    | a.v.testmail@ukr.net                                                   |
+#    Then User checks that error message is displayed when term of service is not accepted
 
   Scenario Outline: Check that team names and scores is displayed correctly
     Given User opens home page
