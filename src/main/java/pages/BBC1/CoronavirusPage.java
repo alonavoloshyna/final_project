@@ -3,6 +3,8 @@ package pages.BBC1;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.BasePage;
+import pages.fragments.BBC1.Form;
 
 public class CoronavirusPage extends BasePage {
 
@@ -11,21 +13,6 @@ public class CoronavirusPage extends BasePage {
 
     @FindBy(xpath = "//div[contains(@aria-labelledby,'Getintouch')]//h3[contains(text(),'Your questions')]/ancestor::a")
     private WebElement sendQuestionsMenu;
-
-    @FindBy(xpath = "//input[@placeholder='Name']")
-    private WebElement textInputFieldForName;
-
-    @FindBy(xpath = "//input[@placeholder='Email address']")
-    private WebElement textInputFieldForEmail;
-
-    @FindBy(xpath = "//textarea[contains(@id,'hearken-embed-module')]")
-    private WebElement textareaForQuestion;
-
-    @FindBy(xpath = "//div[@class='embed-content-container']//input[@type='checkbox']")
-    private WebElement checkboxForAcceptingTermOfService;
-
-    @FindBy(xpath = "//div[@class='embed-content-container']//button")
-    private WebElement submitButton;
 
     @FindBy(xpath = "//div[contains(@class,'long-text-input')]//div[@class='input-error-message']")
     private WebElement errorMessageForQuestionField;
@@ -47,6 +34,10 @@ public class CoronavirusPage extends BasePage {
 
     public CoronavirusPage(WebDriver driver) {
         super(driver);
+    }
+
+    public Form getQuestionFormFragment() {
+        return new Form(questionForm);
     }
 
     public WebElement getErrorMessageForCheckbox() {
@@ -87,26 +78,6 @@ public class CoronavirusPage extends BasePage {
 
     public void clickOnSendQuestionMenu() {
         sendQuestionsMenu.click();
-    }
-
-    public void fillInputFieldForName(String name) {
-        textInputFieldForName.sendKeys(name);
-    }
-
-    public void fillInputFieldForEmail(String email) {
-        textInputFieldForEmail.sendKeys(email);
-    }
-
-    public void fillTextareaWithQuestion(String question) {
-        textareaForQuestion.sendKeys(question);
-    }
-
-    public void putTickInTheCheckbox() {
-        checkboxForAcceptingTermOfService.click();
-    }
-
-    public void clickSubmitButton() {
-        submitButton.click();
     }
 
     public void closeAdd() {

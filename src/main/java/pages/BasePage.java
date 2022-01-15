@@ -1,4 +1,4 @@
-package pages.BBC1;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,8 +12,8 @@ import java.util.List;
 public class BasePage {
     private static final Long DEFAULT_TIMEOUT = 30L;
 
-    public WebDriver driver;
-    WebDriverWait wait;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;

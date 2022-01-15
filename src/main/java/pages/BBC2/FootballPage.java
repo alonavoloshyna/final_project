@@ -1,11 +1,10 @@
 package pages.BBC2;
 
-import pages.BBC1.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.BasePage;
 
 import java.util.Arrays;
 import java.util.List;

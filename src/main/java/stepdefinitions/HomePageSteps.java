@@ -8,7 +8,7 @@ import utils.TestContext;
 
 public class HomePageSteps {
 
-    private final static String HOME_PAGE_URL = "https://www.bbc.com/";
+    private static final String HOME_PAGE_URL = "https://www.bbc.com/";
 
     HomePage homePage;
 

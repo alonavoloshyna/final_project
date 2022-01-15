@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -27,26 +28,26 @@ public class CoronavirusPageSteps {
         coronavirusPage.clickOnSendQuestionMenu();
     }
 
-    @When("User fills name input field with name value {string}")
-    public void userFillsNameInputFieldWithNameValueNameValue(final String name) {
-        coronavirusPage.waitVisibilityOfElement(coronavirusPage.getQuestionForm());
-        coronavirusPage.fillInputFieldForName(name);
-    }
-
-    @And("User fills email input field with email value {string}")
-    public void userFillsEmailInputFieldWithEmailValueEmailValue(final String email) {
-        coronavirusPage.fillInputFieldForEmail(email);
-    }
-
-    @And("User accepts the terms of Service by clicking on checkbox")
-    public void userAcceptsTheTermsOfServiceByClickingOnCheckbox() {
-        coronavirusPage.putTickInTheCheckbox();
-    }
-
-    @And("User clicks on submit button")
-    public void userClicksOnSubmitButton() {
-        coronavirusPage.clickSubmitButton();
-    }
+//    @When("User fills name input field with name value {string}")
+//    public void userFillsNameInputFieldWithNameValueNameValue(final String name) {
+//        coronavirusPage.waitVisibilityOfElement(coronavirusPage.getQuestionForm());
+//        coronavirusPage.getQuestionFormFragment().fillInputFieldForName(name);
+//    }
+//
+//    @And("User fills email input field with email value {string}")
+//    public void userFillsEmailInputFieldWithEmailValueEmailValue(final String email) {
+//        coronavirusPage.getQuestionFormFragment().fillInputFieldForEmail(email);
+//    }
+//
+//    @And("User accepts the terms of Service by clicking on checkbox")
+//    public void userAcceptsTheTermsOfServiceByClickingOnCheckbox() {
+//        coronavirusPage.getQuestionFormFragment().putTickInTheCheckbox();
+//    }
+//
+//    @And("User clicks on submit button")
+//    public void userClicksOnSubmitButton() {
+//        coronavirusPage.getQuestionFormFragment().clickSubmitButton();
+//    }
 
     @Then("User checks that error message is displayed when question field is empty")
     public void userChecksThatErrorMessageIsDisplayedWhenQuestionFieldIsEmpty() {
@@ -54,10 +55,10 @@ public class CoronavirusPageSteps {
         assertTrue(coronavirusPage.isErrorMessageForQuestionFieldDisplayed());
     }
 
-    @And("User fills email input field with question text {string}")
-    public void userFillsEmailInputFieldWithQuestionTextQuestionText(final String question) {
-        coronavirusPage.fillTextareaWithQuestion(question);
-    }
+//    @And("User fills email input field with question text {string}")
+//    public void userFillsEmailInputFieldWithQuestionTextQuestionText(final String question) {
+//        coronavirusPage.getQuestionFormFragment().fillTextareaWithQuestion(question);
+//    }
 
     @Then("User checks that error message is displayed when email field is empty")
     public void userChecksThatErrorMessageIsDisplayedWhenEmailFieldIsEmpty() {
@@ -81,5 +82,10 @@ public class CoronavirusPageSteps {
     public void userClicksOnCoronavirusStoriesMenu() {
         coronavirusPage.waitVisibilityOfElement(coronavirusPage.getCoronavirusStoriesMenu());
         coronavirusPage.clickOnCoronavirusStoriesMenu();
+    }
+
+    @And("User fills Question form on Coronavirus page")
+    public void fillInQuestionFormOnCoronavirusPage(DataTable dataTable) {
+        coronavirusPage.getQuestionFormFragment().fillForm(dataTable.asMap());
     }
 }

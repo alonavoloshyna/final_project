@@ -1,6 +1,6 @@
 package pages.BBC2;
 
-import pages.BBC1.BasePage;
+import pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

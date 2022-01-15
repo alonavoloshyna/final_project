@@ -3,6 +3,7 @@ package pages.BBC1;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.BasePage;
 
 import java.util.List;
 import java.util.stream.Collectors;
