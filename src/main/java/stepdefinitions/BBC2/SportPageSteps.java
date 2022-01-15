@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.BBC2;
 
 import io.cucumber.java.en.And;
 import pages.BBC2.SportPage;
@@ -8,7 +8,7 @@ public class SportPageSteps {
 
     SportPage sportPage;
 
-    public SportPageSteps(TestContext testContext){
+    public SportPageSteps(TestContext testContext) {
         sportPage = testContext.getPageFactoryManager().getSportPage();
     }
 

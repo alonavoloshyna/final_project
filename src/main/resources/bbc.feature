@@ -122,9 +122,17 @@ Feature: BBC
     And User clicks on Scores and Fixture menu
     When User fills search input field with keyword '<nameOfChampionship>'
     And User choose specified period '<yearAndMonthIndex>'
-    Then User checks that names and scores is displayed correctly for specified team pair '<pair>', '<nameOfFirstTeam>', '<scoreOfFirstTeam>', '<nameOfSecondTeam>', '<scoreOfSecondTeam>'
-    And User clicks on on one of the team names '<pair>'
-    Then User checks that names and scores is displayed correctly on team pair subpage '<nameOfFirstTeam>', '<scoreOfFirstTeam>', '<nameOfSecondTeam>', '<scoreOfSecondTeam>'
+    Then User checks that names and scores is displayed correctly for specified team pair
+      | nameOfFirstTeam   | <nameOfFirstTeam>   |
+      | scoreOfFirstTeam  | <scoreOfFirstTeam>  |
+      | nameOfSecondTeam  | <nameOfSecondTeam>  |
+      | scoreOfSecondTeam | <scoreOfSecondTeam> |
+    When User clicks on on one of the team names '<pair>'
+    Then User checks that names and scores is displayed correctly on team pair subpage
+      | nameOfFirstTeam   | <nameOfFirstTeam>   |
+      | scoreOfFirstTeam  | <scoreOfFirstTeam>  |
+      | nameOfSecondTeam  | <nameOfSecondTeam>  |
+      | scoreOfSecondTeam | <scoreOfSecondTeam> |
 
     Examples:
       | nameOfChampionship    | pair | yearAndMonthIndex | nameOfFirstTeam | scoreOfFirstTeam | nameOfSecondTeam    | scoreOfSecondTeam |

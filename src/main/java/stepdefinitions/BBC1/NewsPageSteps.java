@@ -1,8 +1,7 @@
-package stepdefinitions;
+package stepdefinitions.BBC1;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import pages.BBC1.HomePage;
 import pages.BBC1.NewsPage;
 import utils.TestContext;
 

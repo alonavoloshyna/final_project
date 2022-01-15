@@ -1,7 +1,6 @@
-package stepdefinitions;
+package stepdefinitions.BBC1;
 
 import io.cucumber.java.en.Then;
-import pages.BBC1.NewsPage;
 import pages.BBC1.SearchResultsPage;
 import utils.TestContext;
 
@@ -18,6 +17,5 @@ public class SearchResultsPageSteps {
     @Then("User checks that specified found article '{int}' contains specified value {string}")
     public void userChecksThatSpecifiedFoundArticleNumberOfArticleContainsSpecifiedValueExpectedValue(int numberOfArticle, String expectedValue) {
         assertEquals(searchResultsPage.getArticleTitleOfResultInSearchByIndex(numberOfArticle), expectedValue);
-
     }
 }
