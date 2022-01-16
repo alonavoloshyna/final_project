@@ -22,31 +22,10 @@ public class CoronavirusPageSteps {
         coronavirusPage.closeAdd();
     }
 
-    @And("User clicks on send question menu")
+    @And("User clicks on Send question menu")
     public void userClicksOnSendQuestionMenu() {
         coronavirusPage.clickOnSendQuestionMenu();
     }
-
-//    @When("User fills name input field with name value {string}")
-//    public void userFillsNameInputFieldWithNameValueNameValue(final String name) {
-//        coronavirusPage.waitVisibilityOfElement(coronavirusPage.getQuestionForm());
-//        coronavirusPage.getQuestionFormFragment().fillInputFieldForName(name);
-//    }
-//
-//    @And("User fills email input field with email value {string}")
-//    public void userFillsEmailInputFieldWithEmailValueEmailValue(final String email) {
-//        coronavirusPage.getQuestionFormFragment().fillInputFieldForEmail(email);
-//    }
-//
-//    @And("User accepts the terms of Service by clicking on checkbox")
-//    public void userAcceptsTheTermsOfServiceByClickingOnCheckbox() {
-//        coronavirusPage.getQuestionFormFragment().putTickInTheCheckbox();
-//    }
-//
-//    @And("User clicks on submit button")
-//    public void userClicksOnSubmitButton() {
-//        coronavirusPage.getQuestionFormFragment().clickSubmitButton();
-//    }
 
     @Then("User checks that error message is displayed when {string} field is empty")
     public void userChecksThatErrorMessageIsDisplayedWhenSomeFieldIsEmpty(final String field) {
@@ -71,36 +50,7 @@ public class CoronavirusPageSteps {
         }
     }
 
-//    @Then("User checks that error message is displayed when question field is empty")
-//    public void userChecksThatErrorMessageIsDisplayedWhenQuestionFieldIsEmpty() {
-//        coronavirusPage.waitVisibilityOfElement(coronavirusPage.getErrorMessageForQuestionField());
-//        assertTrue(coronavirusPage.isErrorMessageForQuestionFieldDisplayed());
-//    }
-
-//    @And("User fills email input field with question text {string}")
-//    public void userFillsEmailInputFieldWithQuestionTextQuestionText(final String question) {
-//        coronavirusPage.getQuestionFormFragment().fillTextareaWithQuestion(question);
-//    }
-
-//    @Then("User checks that error message is displayed when email field is empty")
-//    public void userChecksThatErrorMessageIsDisplayedWhenEmailFieldIsEmpty() {
-//        coronavirusPage.waitVisibilityOfElement(coronavirusPage.getErrorMessageForEmailField());
-//        assertTrue(coronavirusPage.isErrorMessageForEmailFieldDisplayed());
-//    }
-
-//    @Then("User checks that error message is displayed when name field is empty")
-//    public void userChecksThatErrorMessageIsDisplayedWhenNameFieldIsEmpty() {
-//        coronavirusPage.waitVisibilityOfElement(coronavirusPage.getErrorMessageForNameField());
-//        assertTrue(coronavirusPage.isErrorMessageForNameFieldDisplayed());
-//    }
-
-//    @Then("User checks that error message is displayed when term of service is not accepted")
-//    public void userChecksThatErrorMessageIsDisplayedWhenTermOfServiceIsNotAccepted() {
-//        coronavirusPage.waitVisibilityOfElement(coronavirusPage.getErrorMessageForCheckbox());
-//        assertTrue(coronavirusPage.isErrorMessageForCheckboxDisplayed());
-//    }
-
-    @And("User clicks on coronavirus stories menu")
+    @And("User clicks on Coronavirus stories menu")
     public void userClicksOnCoronavirusStoriesMenu() {
         coronavirusPage.waitVisibilityOfElement(coronavirusPage.getCoronavirusStoriesMenu());
         coronavirusPage.clickOnCoronavirusStoriesMenu();

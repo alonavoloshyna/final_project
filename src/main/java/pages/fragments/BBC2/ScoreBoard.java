@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.fragments.BaseFragment;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class ScoreBoard extends BaseFragment {
@@ -25,8 +26,10 @@ public class ScoreBoard extends BaseFragment {
 
     public Score getScore(String team1, String team2) {
         WebElement scoreContainer = listOfTeamsPair.stream().filter(teamPair -> {
-            String text = teamPair.getText().toLowerCase();
-            return text.contains(team1.toLowerCase()) && text.contains(team2.toLowerCase());
+            List<String> textList = Arrays.asList(teamPair.getText().split("\n"));
+            String actualTeam1 = textList.get(0);
+            String actualTeam2 = textList.get(2);
+            return actualTeam1.equals(team1) && actualTeam2.equals(team2);
         }).findFirst().orElse(null);
 
         if (scoreContainer == null) {

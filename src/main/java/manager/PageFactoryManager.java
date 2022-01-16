@@ -6,6 +6,7 @@ import pages.BBC1.HomePage;
 import pages.BBC1.NewsPage;
 import pages.BBC1.SearchResultsPage;
 import pages.BBC2.FootballPage;
+import pages.BBC2.MatchPage;
 import pages.BBC2.SportPage;
 
 public class PageFactoryManager {
@@ -39,4 +40,6 @@ public class PageFactoryManager {
     public SportPage getSportPage() {
         return new SportPage(driver);
     }
+
+    public MatchPage getMatchPage() { return new MatchPage(driver); }
 }

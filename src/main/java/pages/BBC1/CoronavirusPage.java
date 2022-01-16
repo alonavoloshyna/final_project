@@ -56,16 +56,8 @@ public class CoronavirusPage extends BasePage {
         return errorMessageForQuestionField;
     }
 
-    public WebElement getSendQuestionsMenu() {
-        return sendQuestionsMenu;
-    }
-
     public WebElement getCoronavirusStoriesMenu() {
         return coronavirusStoriesMenu;
-    }
-
-    public WebElement getQuestionForm() {
-        return questionForm;
     }
 
     public WebElement getCloseButtonForAdd() {

@@ -25,10 +25,6 @@ public class Score extends BaseFragment {
         return scoreContainer;
     }
 
-    private List<String> getScoreContainerTexts() {
-        return Arrays.asList(scoreContainer.getText().split("\n"));
-    }
-
     public String getFirstTeamName() {
         return getScoreContainerTexts().get(FIRST_TEAM_NAME);
     }
@@ -43,5 +39,9 @@ public class Score extends BaseFragment {
 
     public String getSecondTeamScore() {
         return getScoreContainerTexts().get(SECOND_TEAM_SCORE);
+    }
+
+    private List<String> getScoreContainerTexts() {
+        return Arrays.asList(scoreContainer.getText().split("\n"));
     }
 }

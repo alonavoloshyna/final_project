@@ -18,7 +18,7 @@ public class NewsPageSteps {
         newsPage = testContext.getPageFactoryManager().getNewsPage();
     }
 
-    @Then("User checks that top news title contains specified value {string}")
+    @Then("User checks that headline article title contains specified value {string}")
     public void userChecksThatTopNewsTitleContainsSpecifiedValueValue(final String expectedValue) {
         assertTrue(newsPage.getTextFromTitleOfHeadlineArticle().contains(expectedValue));
     }
@@ -35,14 +35,13 @@ public class NewsPageSteps {
         newsPage.clickOnSearchButton();
     }
 
-
     @Then("User checks that secondary news title contains specified values '<expectedValues>'")
     public void userChecksThatSecondaryNewsTitleContainsSpecifiedValuesExpectedValues(List<String> expectedTitles) {
         newsPage.waitVisibilityOfElement(newsPage.getListOfSubtitle().get(0));
-        assertEquals(newsPage.getListOfSubtitleAsStringValues(), expectedTitles);
+        assertEquals(expectedTitles, newsPage.getListOfSubtitleAsStringValues());
     }
 
-    @And("User clicks on coronavirus menu")
+    @And("User clicks on Coronavirus menu")
     public void userClicksOnCoronavirusMenu() {
         newsPage.waitVisibilityOfElement(newsPage.getCoronavirusMenu());
         newsPage.clickOnCoronavirusMenu();

@@ -15,7 +15,7 @@ public class Form extends BaseFragment {
     private WebElement textInputFieldForEmail;
 
     @FindBy(xpath = ".//textarea[contains(@id,'hearken-embed-module')]")
-    private WebElement textareaForQuestion;
+    private WebElement textAreaForQuestion;
 
     @FindBy(xpath = ".//input[@type='checkbox']")
     private WebElement checkboxForAcceptingTermOfService;
@@ -27,26 +27,6 @@ public class Form extends BaseFragment {
         super(container);
     }
 
-//    public void fillInputFieldForName(String name) {
-//        textInputFieldForName.sendKeys(name);
-//    }
-//
-//    public void fillInputFieldForEmail(String email) {
-//        textInputFieldForEmail.sendKeys(email);
-//    }
-//
-//    public void fillTextareaWithQuestion(String question) {
-//        textareaForQuestion.sendKeys(question);
-//    }
-//
-//    public void putTickInTheCheckbox() {
-//        checkboxForAcceptingTermOfService.click();
-//    }
-//
-//    public void clickSubmitButton() {
-//        submitButton.click();
-//    }
-
     public void fillForm(Map<String, String> data) {
         String question = data.get("question");
         String name = data.get("name");
@@ -54,7 +34,7 @@ public class Form extends BaseFragment {
         String termsOfService = data.get("termsOfService");
 
         if (question != null) {
-            textareaForQuestion.sendKeys(question);
+            textAreaForQuestion.sendKeys(question);
         }
         if (name != null) {
             textInputFieldForName.sendKeys(name);

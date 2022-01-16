@@ -35,20 +35,8 @@ public class NewsPage extends BasePage {
         super(driver);
     }
 
-    public WebElement getTitleOfHeadlineArticle() {
-        return titleOfHeadlineArticle;
-    }
-
     public List<WebElement> getListOfSubtitle() {
         return listOfSubtitle;
-    }
-
-    public WebElement getCloseButtonForAdd() {
-        return closeButtonForAdd;
-    }
-
-    public WebElement getNameOfNewsCategory() {
-        return nameOfNewsCategory;
     }
 
     public WebElement getSearchField() {
@@ -63,10 +51,6 @@ public class NewsPage extends BasePage {
         return coronavirusMenu;
     }
 
-    public void closeAdd() {
-        closeButtonForAdd.click();
-    }
-
     public List<String> getListOfSubtitleAsStringValues() {
         return listOfSubtitle
                 .stream()
@@ -76,7 +60,7 @@ public class NewsPage extends BasePage {
     }
 
     public void enterKeyWordInSearchField(String searchKeyword) {
-        getSearchField().sendKeys(searchKeyword);
+        searchField.sendKeys(searchKeyword);
     }
 
     public void clickOnSearchButton() {
@@ -89,10 +73,6 @@ public class NewsPage extends BasePage {
 
     public String getTextFromTitleOfHeadlineArticle() {
         return titleOfHeadlineArticle.getText();
-    }
-
-    public WebElement getSubTitleByIndex(int index) {
-        return listOfSubtitle.get(index);
     }
 
     public String getNameOfNewsCategoryText() {

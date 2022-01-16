@@ -4,51 +4,51 @@ Feature: BBC
   So that I can be sure that site works correctly
 
   Scenario Outline: Check that top news title contains specified value
-    Given User opens home page
+    Given User opens Home page
     When User clicks on News section
-    Then User checks that top news title contains specified value '<expectedValue>'
+    Then User checks that headline article title contains specified value '<expectedValue>'
 
     Examples:
       | expectedValue |
-      | Ukraine       |
+      | moonscape     |
 
   Scenario: Check that secondary news title contains specified values
-    Given User opens home page
+    Given User opens Home page
     When User clicks on News section
     And User closes advertising message on page
     Then User checks that secondary news title contains specified values '<expectedValues>'
-      | No 10 apologises to Queen over lockdown parties    |
-      | Djokovic to be detained in Australia amid visa row |
-      | US fugitive who faked death found alive in Glasgow |
-      | MrBeast tops YouTube rich list for first time      |
-      | Spears sisters get embroiled in public feud        |
-      | 'High confidence' Omicron is less severe in UK     |
-      | Jailed 'Pharma Bro' ordered to repay $64m          |
-      | Man confesses to gay hate murder decades on        |
-      | Danish ex-minister accused of state secrets leak   |
-      | Vigils across Ireland for murdered teacher         |
-      | Prince Andrew accuser welcomes legal case decision |
-      | Bayern Munich's Davies diagnosed with myocarditis  |
-      | Couple celebrate 81st wedding anniversary          |
+      | Novak Djokovic deported from Australia                |
+      | Texas synagogue hostage-taker was British             |
+      | Harry in legal fight to pay for police protection     |
+      | US and Canada hit by major winter storm               |
+      | Italian fashion great Nino Cerruti dies aged 91       |
+      | Ousted president of Mali dies aged 76                 |
+      | Opposition accuses UK PM of breaking law over parties |
+      | Manager Benitez sacked by Everton                     |
+      | Ex-senator arrested over Haiti president's murder     |
+      | Wounded Somali spokesman 'stable' after bomb attack   |
+      | King or queen sought to run remote island and pub     |
+      | Thousands gather in Ireland for killed teacher        |
+      | BBC licence fee deal will be the last - minister      |
 
-  Scenario Outline: Check that as a result of the search by category of the headline article specified title of search contains specified value
-    Given User opens home page
+  Scenario Outline: Check that first result of the search by category of the headline article contains specified value
+    Given User opens Home page
     And User clicks on News section
-    And User enters news category of headline article in search input field
+    When User enters news category of headline article in search input field
     And User clicks on search button
-    Then User checks that specified found article '<numberOfArticle>' contains specified value '<expectedValue>'
+    Then User checks that article '<numberOfArticle>' contains value '<expectedValue>'
 
     Examples:
-      | numberOfArticle | expectedValue                    |
-      | 0               | Europe: Strangers on My Doorstep |
+      | numberOfArticle | expectedValue       |
+      | 0               | At The Edge of Asia |
 
-  Scenario Outline: Check that question form throws out appropriate error messages
-    Given User opens home page
+  Scenario Outline: Check that question form shows error messages in case of absence of required fields
+    Given User opens Home page
     And User clicks on News section
-    And User clicks on coronavirus menu
+    And User clicks on Coronavirus menu
     And User closes advertising message on page
-    And User clicks on coronavirus stories menu
-    And User clicks on send question menu
+    And User clicks on Coronavirus stories menu
+    And User clicks on Send question menu
     When User fills Question form on Coronavirus page
       | question       | <question>       |
       | name           | <name>           |
@@ -63,72 +63,20 @@ Feature: BBC
       | What are the recommendations for someone who has symptoms of COVID-19? |                 | a.v.testmail@ukr.net | checked        | name             |
       |                                                                        | Alona Voloshyna | a.v.testmail@ukr.net | checked        | question         |
 
-#  Scenario: Check that question form throws out error message when question field is empty
-#    Given User opens home page
-#    And User clicks on News section
-#    And User clicks on coronavirus menu
-#    And User closes advertising message on page
-#    And User clicks on coronavirus stories menu
-#    And User clicks on send question menu
-#    When User fills Question form on Coronavirus page
-#      | name           | Alona Voloshyna      |
-#      | email          | a.v.testmail@ukr.net |
-#      | termsOfService | checked              |
-#    Then User checks that error message is displayed when question field is empty
-
-#  Scenario: Check that question form throws out error message when email field is empty
-#    Given User opens home page
-#    And User clicks on News section
-#    And User clicks on coronavirus menu
-#    And User closes advertising message on page
-#    And User clicks on coronavirus stories menu
-#    And User clicks on send question menu
-#    When User fills Question form on Coronavirus page
-#      | question       | What are the recommendations for someone who has symptoms of COVID-19? |
-#      | name           | Alona Voloshyna                                                        |
-#      | termsOfService | checked                                                                |
-#    Then User checks that error message is displayed when email field is empty
-
-#  Scenario: Check that question form throws out error message when name field is empty
-#    Given User opens home page
-#    And User clicks on News section
-#    And User clicks on coronavirus menu
-#    And User closes advertising message on page
-#    And User clicks on coronavirus stories menu
-#    And User clicks on send question menu
-#    When User fills Question form on Coronavirus page
-#      | question       | What are the recommendations for someone who has symptoms of COVID-19? |
-#      | email          | a.v.testmail@ukr.net                                                   |
-#      | termsOfService | checked                                                                |
-#    Then User checks that error message is displayed when name field is empty
-
-#  Scenario: Check that question form throws out error message when term of service is not accepted
-#    Given User opens home page
-#    And User clicks on News section
-#    And User clicks on coronavirus menu
-#    And User closes advertising message on page
-#    And User clicks on coronavirus stories menu
-#    And User clicks on send question menu
-#    When User fills Question form on Coronavirus page
-#      | question | What are the recommendations for someone who has symptoms of COVID-19? |
-#      | name     | Alona Voloshyna                                                        |
-#      | email    | a.v.testmail@ukr.net                                                   |
-#    Then User checks that error message is displayed when term of service is not accepted
-
-  Scenario Outline: Check that team names and scores is displayed correctly
-    Given User opens home page
+  Scenario Outline: Check that team names and scores are displayed correctly
+    Given User opens Home page
     And User clicks on Sport section
     And User clicks on Football menu
     And User clicks on Scores and Fixture menu
     When User fills search input field with keyword '<nameOfChampionship>'
-    And User choose specified period '<yearAndMonthIndex>'
-    Then User checks that names and scores is displayed correctly for specified team pair
+    And User chooses period '<yearAndMonthIndex>'
+    Then User checks that names and scores are displayed correctly for specified team pair
       | nameOfFirstTeam   | <nameOfFirstTeam>   |
       | scoreOfFirstTeam  | <scoreOfFirstTeam>  |
       | nameOfSecondTeam  | <nameOfSecondTeam>  |
       | scoreOfSecondTeam | <scoreOfSecondTeam> |
-    When User clicks on on one of the team names '<pair>'
-    Then User checks that names and scores is displayed correctly on team pair subpage
+    When User clicks on one of the team names '<pair>'
+    Then User checks that names and scores are displayed correctly on team pair subpage
       | nameOfFirstTeam   | <nameOfFirstTeam>   |
       | scoreOfFirstTeam  | <scoreOfFirstTeam>  |
       | nameOfSecondTeam  | <nameOfSecondTeam>  |

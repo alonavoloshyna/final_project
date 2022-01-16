@@ -14,8 +14,8 @@ public class SearchResultsPageSteps {
         searchResultsPage = testContext.getPageFactoryManager().getSearchResultsPage();
     }
 
-    @Then("User checks that specified found article '{int}' contains specified value {string}")
+    @Then("User checks that article '{int}' contains value {string}")
     public void userChecksThatSpecifiedFoundArticleNumberOfArticleContainsSpecifiedValueExpectedValue(int numberOfArticle, String expectedValue) {
-        assertEquals(searchResultsPage.getArticleTitleOfResultInSearchByIndex(numberOfArticle), expectedValue);
+        assertEquals(expectedValue, searchResultsPage.getArticleTitleOfResultInSearchByIndex(numberOfArticle));
     }
 }

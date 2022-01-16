@@ -15,7 +15,7 @@ public class HomePageSteps {
         homePage = testContext.getPageFactoryManager().getHomePage();
     }
 
-    @And("User opens home page")
+    @And("User opens Home page")
     public void openPage() {
         homePage.openHomePage(HOME_PAGE_URL);
     }
@@ -26,12 +26,9 @@ public class HomePageSteps {
         homePage.clickOnNewsMenu();
     }
 
-
     @And("User clicks on Sport section")
     public void userClicksOnSportSection() {
         homePage.waitVisibilityOfElement(homePage.getSportMenu());
         homePage.clickOnSportMenu();
     }
-
-
 }
